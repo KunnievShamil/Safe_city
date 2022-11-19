@@ -10,6 +10,7 @@ import androidx.core.graphics.drawable.toBitmap
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.safecity.databinding.FragmentHomeBinding
+import com.example.safecity.presentation.home.HomeActivity
 import com.yandex.mapkit.Animation
 import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.geometry.Point
@@ -29,6 +30,9 @@ class HomeFragment : Fragment() {
         override fun onMapTap(p0: Map, p1: Point) {
             map.addPlacemark(p1)
             Log.d("AAAA",p1.toString())
+            activity?.let {
+                (it as HomeActivity).showAddIncidentButton()
+            }
         }
 
         override fun onMapLongTap(p0: Map, p1: Point) {
